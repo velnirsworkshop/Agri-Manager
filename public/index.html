@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Agri Reports</title>
+</head>
+<body>
+  <h1>Reports</h1>
+  <section id="consumption">
+    <h2>Consumption by Field</h2>
+    <pre id="consumptionData"></pre>
+  </section>
+  <section id="profit">
+    <h2>Profit by Month</h2>
+    <pre id="profitData"></pre>
+  </section>
+  <script>
+  async function load() {
+    const cons = await fetch('/reports/consumption').then(r => r.json());
+    document.getElementById('consumptionData').textContent = JSON.stringify(cons, null, 2);
+    const profit = await fetch('/reports/profit').then(r => r.json());
+    document.getElementById('profitData').textContent = JSON.stringify(profit, null, 2);
+  }
+  load();
+  </script>
+</body>
+</html>
