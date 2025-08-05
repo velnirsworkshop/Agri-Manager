@@ -1,3 +1,6 @@
+node_modules
+dist
 __pycache__/
 *.pyc
 agri_manager.db
+
